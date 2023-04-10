@@ -1,29 +1,29 @@
-function findFirstNonRepeatedChar(str) {
-  const charCounts = {};
+//your JS code here. If required.
+function findFirstNonRepeatingCharacter(str) {
+  // Create an empty object to store character frequency
+  const frequency = {};
 
-  // count the frequency of each character in the string
+  // Loop through each character in the string and increment its frequency count
   for (let i = 0; i < str.length; i++) {
     const char = str[i];
-    charCounts[char] = charCounts[char] ? charCounts[char] + 1 : 1;
+    frequency[char] = frequency[char] ? frequency[char] + 1 : 1;
   }
 
-  // find the first character with a frequency of 1
+  // Loop through the string again and return the first character with a frequency count of 1
   for (let i = 0; i < str.length; i++) {
     const char = str[i];
-    if (charCounts[char] === 1) {
+    if (frequency[char] === 1) {
       return char;
     }
   }
 
-  // if no character has a frequency of 1, return null
+  // If no non-repeating character is found, return null
   return null;
 }
 
+// Prompt the user for input
 const input = prompt("Enter a string:");
-const firstNonRepeatedChar = findFirstNonRepeatedChar(input);
 
-if (firstNonRepeatedChar) {
-  alert(`The first non-repeated character in "${input}" is "${firstNonRepeatedChar}".`);
-} else {
-  alert(`There is no non-repeated character in "${input}".`);
-}
+// Call the function and display the result
+const result = findFirstNonRepeatingCharacter(input);
+alert(result);
